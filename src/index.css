@@ -1,0 +1,131 @@
+@import "tailwindcss";
+
+.sidebar-link:hover {
+    background-color: var(--sidebar-hover);
+}
+
+html {
+    scrollbar-width: thin;
+    scrollbar-color: #cbd5e1 #f1f5f9;
+}
+
+html::-webkit-scrollbar {
+    width: 8px;
+}
+
+html::-webkit-scrollbar-track {
+    background: #f1f5f9;
+}
+
+html::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 9999px;
+}
+
+html::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+    height: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: #f1f5f9;
+    border-radius: 9999px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 9999px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+/* Hide scrollbar while keeping horizontal scrolling */
+.scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+
+
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.slide-up {
+    animation: slideUp 0.45s ease-out both;
+}
+
+@keyframes pageEnter {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.page-enter {
+    animation: pageEnter 0.4s ease-out;
+}
+
+.accessibility-focus button:focus-visible,
+.accessibility-focus a:focus-visible,
+.accessibility-focus input:focus-visible,
+.accessibility-focus select:focus-visible,
+.accessibility-focus textarea:focus-visible {
+    outline: 3px solid #000;
+    outline-offset: 3px;
+}
+
+
+.accessibility-font .text-xs {
+    font-size: calc(0.75rem * var(--font-scale));
+}
+
+.accessibility-font .text-sm {
+    font-size: calc(0.875rem * var(--font-scale));
+}
+
+.accessibility-font .text-base {
+    font-size: calc(1rem * var(--font-scale));
+}
+
+.accessibility-font .text-lg {
+    font-size: calc(1.125rem * var(--font-scale));
+}
+
+.accessibility-font .text-xl {
+    font-size: calc(1.25rem * var(--font-scale));
+}
+
+.accessibility-font .text-2xl {
+    font-size: calc(1.5rem * var(--font-scale));
+}
+
+.accessibility-font .text-3xl {
+    font-size: calc(1.875rem * var(--font-scale));
+}
+
+.accessibility-font {
+    font-family: var(--font-style), sans-serif;
+}
