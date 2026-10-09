@@ -3,8 +3,6 @@ import { createPortal } from "react-dom";
 import { useNavigate } from "react-router-dom";
 import {
     Plus,
-    Upload,
-    Download,
     Truck,
     Filter,
     Settings2,

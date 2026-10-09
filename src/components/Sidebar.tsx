@@ -8,7 +8,6 @@ import {
 import {
     LayoutDashboard,
     Truck,
-    Package,
     Boxes,
     Layers,
     ClipboardList,
