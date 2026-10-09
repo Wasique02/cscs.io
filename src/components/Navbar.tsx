@@ -14,7 +14,6 @@ function Navbar({
     setIsSidebarOpen,
     isSidebarCollapsed,
     primaryColor,
-    setPrimaryColor,
 }: NavbarProps) {
 
     const location = useLocation();

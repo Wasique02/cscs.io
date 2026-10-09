@@ -50,7 +50,7 @@ const AccessibilityPanel = ({
     setFocusIndicator,
 }: AccessibilityPanelProps) => {
     return (
-        <div className="fixed inset-y-0 right-0 z-[60] flex w-full max-w-sm flex-col bg-white shadow-2xl">
+        <div className="fixed inset-y-0 right-0 z-60 flex w-full max-w-sm flex-col bg-white shadow-2xl">
             {/* Header */}
             <div className="flex items-center justify-between border-b border-gray-200 px-5 py-4">
                 <div className="flex items-center gap-3">

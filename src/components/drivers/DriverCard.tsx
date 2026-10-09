@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
     Mail,
@@ -7,7 +6,6 @@ import {
     Truck,
     Pencil,
     Trash2,
-    MoreHorizontal,
 } from "lucide-react";
 
 type DriverCardProps = {
@@ -36,7 +34,6 @@ const DriverCard = ({
     onDelete,
     onRowClick,
 }: DriverCardProps) => {
-    const [showMenu, setShowMenu] = useState(false);
     const navigate = useNavigate();
 
     return (

@@ -1,4 +1,3 @@
-
 import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { useNavigate } from "react-router-dom";
@@ -17,6 +16,8 @@ import PurchaseOrderStats from "../components/purchase-orders/PurchaseOrderStats
 import PurchaseOrderDetails from "../components/purchase-orders/PurchaseOrderDetails";
 import PurchaseOrderGrid from "../components/purchase-orders/PurchaseOrderGrid";
 import PurchaseOrderList from "../components/purchase-orders/PurchaseOrderList";
+
+type PurchaseOrderType = (typeof purchaseOrders)[number];
 
 const purchaseOrderColumns = {
     poNumber: "PO Number",
@@ -161,12 +162,18 @@ const PurchaseOrders = () => {
         };
     }, [showColumns]);
 
-    const [orders, setOrders] = useState(() => {
+    const [orders, setOrders] = useState<PurchaseOrderType[]>(() => {
         const storedOrders = localStorage.getItem("purchaseOrders");
 
-        return storedOrders
-            ? JSON.parse(storedOrders)
-            : purchaseOrders;
+        if (!storedOrders) {
+            return purchaseOrders;
+        }
+
+        try {
+            return JSON.parse(storedOrders) as PurchaseOrderType[];
+        } catch {
+            return purchaseOrders;
+        }
     });
 
     const filteredOrders =
