@@ -115,6 +115,7 @@ function Drivers() {
         );
     }, [visibleColumns]);
 
+
     const updateSettingsPosition = () => {
         if (!settingsButtonRef.current) {
             return;
@@ -122,9 +123,20 @@ function Drivers() {
 
         const rect = settingsButtonRef.current.getBoundingClientRect();
 
+        const panelWidth = 256;
+        const screenPadding = 12;
+
+        const left = Math.max(
+            screenPadding,
+            Math.min(
+                rect.right - panelWidth,
+                window.innerWidth - panelWidth - screenPadding
+            )
+        );
+
         setSettingsPosition({
             top: Math.max(rect.bottom + 8, 72),
-            left: rect.right - 256,
+            left,
         });
     };
 
@@ -268,8 +280,8 @@ function Drivers() {
                                     : undefined
                             }
                             className={`rounded-md p-2 transition ${viewMode === "table"
-                                    ? ""
-                                    : "text-gray-500 hover:bg-gray-100"
+                                ? ""
+                                : "text-gray-500 hover:bg-gray-100"
                                 }`}
                             aria-label="Table view"
                         >
@@ -288,8 +300,8 @@ function Drivers() {
                                     : undefined
                             }
                             className={`rounded-md p-2 transition ${viewMode === "grid"
-                                    ? ""
-                                    : "text-gray-500 hover:bg-gray-100"
+                                ? ""
+                                : "text-gray-500 hover:bg-gray-100"
                                 }`}
                             aria-label="Grid view"
                         >
@@ -308,8 +320,8 @@ function Drivers() {
                                     : undefined
                             }
                             className={`rounded-md p-2 transition ${viewMode === "list"
-                                    ? ""
-                                    : "text-gray-500 hover:bg-gray-100"
+                                ? ""
+                                : "text-gray-500 hover:bg-gray-100"
                                 }`}
                             aria-label="List view"
                         >
@@ -358,8 +370,8 @@ function Drivers() {
                                 setShowFilters(!showFilters)
                             }
                             className={`flex h-10 items-center gap-2 rounded-lg border px-3 text-sm font-medium transition ${showFilters
-                                    ? "border-(--primary-color) text-white"
-                                    : "border-gray-200 bg-white text-gray-600 hover:bg-gray-100 hover:text-gray-900"
+                                ? "border-(--primary-color) text-white"
+                                : "border-gray-200 bg-white text-gray-600 hover:bg-gray-100 hover:text-gray-900"
                                 }`}
                             style={
                                 showFilters
@@ -386,8 +398,8 @@ function Drivers() {
                                     setShowColumns(!showColumns);
                                 }}
                                 className={`flex h-10 items-center justify-center rounded-lg border px-3 transition ${showColumns
-                                        ? "border-(--primary-color) text-white"
-                                        : "border-gray-200 bg-white text-gray-600 hover:bg-gray-100 hover:text-gray-900"
+                                    ? "border-(--primary-color) text-white"
+                                    : "border-gray-200 bg-white text-gray-600 hover:bg-gray-100 hover:text-gray-900"
                                     }`}
                                 style={
                                     showColumns
